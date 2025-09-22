@@ -1,0 +1,21 @@
+name: Run demo workflow
+
+# Triggers the workflow manually in GitHub’s UI
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment'
+        required: true
+        default: 'DEV'
+
+jobs:
+  demo:
+    environment: ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print input, variable, and secret
+        run: |
+          echo "Running on env: ${{ github.event.inputs.environment }}"
+          echo "Deploying to: ${{ vars.URL }}"
