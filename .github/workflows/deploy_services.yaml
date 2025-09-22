@@ -13,6 +13,13 @@ on:
           - PROD
 
 jobs:
+  before:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print input, variable, and secret
+        run: |
+          echo "Running bla first"
+
   demo:
     environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-latest
