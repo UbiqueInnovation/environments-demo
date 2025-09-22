@@ -5,9 +5,12 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'environment'
+        description: 'Environment'
         required: true
-        default: 'DEV'
+        type: choice
+        options:
+          - DEV
+          - PROD
 
 jobs:
   demo:
